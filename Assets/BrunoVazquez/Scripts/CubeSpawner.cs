@@ -28,19 +28,7 @@ public class CubeSpawner : MonoBehaviour
             );
 
             GameObject cube = Instantiate(cubePrefab, randomPosition, Quaternion.identity);
-            Rigidbody rb = cube.GetComponent<Rigidbody>();
-
-            if (playerTransform != null)
-            {
-                Vector3 direction = (playerTransform.position - cube.transform.position).normalized;
-                rb.velocity = direction * cubeSpeed; // Mueve el cubo hacia el jugador
-            }
-            else
-            {
-                rb.velocity = Vector3.back * cubeSpeed; // Fallback en caso de que no haya jugador asignado
-            }
-
-            Destroy(cube, 10f); // Destruir después de 10s
+            cube.AddComponent<CubeMovement>().SetTarget(playerTransform, cubeSpeed); // Asigna el movimiento
 
             yield return new WaitForSeconds(spawnRate);
         }

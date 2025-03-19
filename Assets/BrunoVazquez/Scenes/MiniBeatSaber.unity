@@ -525,7 +525,7 @@ MonoBehaviour:
   spawnAreaSize: {x: 5, y: 1, z: 0}
   spawnAreaCenter: {x: 0, y: 4, z: 10}
   spawnRate: 1.5
-  cubeSpeed: 10
+  cubeSpeed: 5
   playerTransform: {fileID: 1938950045}
 --- !u!4 &1326567565
 Transform:
